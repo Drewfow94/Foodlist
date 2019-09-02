@@ -1,28 +1,4 @@
-import uuid from 'uuid';
 import moment from 'moment';
-
-export function getEvents() {
-  return fetch(url)
-  .then(response => response.json())
-  .then(events => events.map(e => ({ ...e, date: new Date(e.date) })))
-}
-
-export function saveEvent({ name, date }) {
-  return fetch(url, {
-    method: 'POST',
-    body: JSON.stringify({
-      name,
-      date,
-      id: uuid(),
-    }),
-    headers: new Headers({
-      'Content-Type': 'application/json'
-    })
-  })
-  .then(res => res.json())
-  .catch(error => console.error('Error:', error));
-}
-
 
 export function formatDate(dateString) {
   const parsed = moment(new Date(dateString));

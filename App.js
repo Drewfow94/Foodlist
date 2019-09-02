@@ -1,20 +1,28 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import EventList from './EventList';
+import EventForm from './EventForm';
+import { StackNavigator, } from 'react-navigation';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <EventList/>
-    </View>
-  );
-}
+const App = StackNavigator({
+  list: { screen: EventList },
+  form: { screen: EventForm },
+});
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+export default StackNavigator({
+  list: {
+    screen: EventList,
+    navigationOptions: () => ({
+      title: 'Food in the fridge.',      
+    }),
+  },
+  form: {
+    screen: EventForm,
+    navigationOptions: () => ({
+      title: 'Add a grocery item.'  
+    }),
   },
 });
+
+
+
