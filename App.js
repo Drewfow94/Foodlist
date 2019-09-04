@@ -1,28 +1,36 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import EventList from './EventList';
-import EventForm from './EventForm';
-import { StackNavigator, } from 'react-navigation';
+import { View, Text, YellowBox } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import HomeScreen from './HomeScreen';
+import FridgeListScreen  from './FridgeList';
+import FridgeFormScreen from './FridgeForm';
+// Before rendering any navigation stack
+import { useScreens } from 'react-native-screens';
+useScreens();
 
-const App = StackNavigator({
-  list: { screen: EventList },
-  form: { screen: EventForm },
+YellowBox.ignoreWarnings([
+  'Warning: componentWillMount is deprecated',
+  'Warning: componentWillReceiveProps is deprecated',
+]);
+
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: HomeScreen,
+  },
+  FridgeList:  {
+    screen: FridgeListScreen,
+  },
+  FridgeForm:  {
+    screen: FridgeFormScreen
+  } 
+}, {
+  initialRouteName: 'Home'
 });
 
-export default StackNavigator({
-  list: {
-    screen: EventList,
-    navigationOptions: () => ({
-      title: 'Food in the fridge.',      
-    }),
-  },
-  form: {
-    screen: EventForm,
-    navigationOptions: () => ({
-      title: 'Add a grocery item.'  
-    }),
-  },
-});
+const App = createAppContainer(AppNavigator);
+
+export default App;
 
 
 
