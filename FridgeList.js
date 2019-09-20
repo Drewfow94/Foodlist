@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 
 class FridgeList extends Component {
     state = {
-        food: []
+        food: [],
     }
 
     componentDidMount() {

@@ -112,7 +112,7 @@ export default function FoodCard({ food }) {
 
 FoodCard.propTypes = {
     food: PropTypes.shape({
-        name: PropTypes.string.isRequired,
+        foodName: PropTypes.string.isRequired,
         date: PropTypes.instanceOf(Date)
     }),
 };
