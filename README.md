@@ -1,2 +1,2 @@
-# Fridgefriend
-This is the private repo for our consumer focused fridge management application.
+# Foodlist
+This is a a small app built in React Native to manage food that I buy and store in my fridge. It sends me notifications when my food is about to go bad. 
